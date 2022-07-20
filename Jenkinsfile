@@ -1,16 +1,13 @@
 pipeline{
     agent any
     stages{
-        stage ("navigate to Q3 dir"){
-            steps{
-                dir('assignment-3/Q3'){
-                    sh "pwd"
-                }
 
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/asejour/adomaa-amos']]])
             }
-
         }
-
+        
         stage("deploy infrastructure"){
             steps{
                  dir('Terraform'){
