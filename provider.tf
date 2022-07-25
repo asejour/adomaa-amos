@@ -135,7 +135,7 @@ resource "aws_eks_node_group" "eks_ng_public" {
   
   
   remote_access {
-    ec2_ssh_key = "srevm-key"
+    ec2_ssh_key = "sre-key"
   }
 
   scaling_config {
